@@ -65,6 +65,7 @@ class AssignmentScaffold extends StatelessWidget {
               Scaffold(
                 appBar: showAppbar
                     ? AppBar(
+                        systemOverlayStyle: ColorPallet.kStatusBarColor,
                         titleSpacing:
                             toolbarPadding ?? StyleSheet.blockSizeHorizontal,
                         centerTitle: true,
@@ -96,7 +97,7 @@ class AssignmentScaffold extends StatelessWidget {
                       )
                     : AppBar(
                         toolbarHeight: 0,
-                        elevation: 0,
+                        elevation: 0,systemOverlayStyle: ColorPallet.kStatusBarColor,
                       ),
                 backgroundColor: ColorPallet.kTransparent,
                 body: child,
@@ -113,14 +114,15 @@ class AssignmentScaffold extends StatelessWidget {
                       : Container(
                           width: MediaQuery.of(context).size.width,
                           height: MediaQuery.of(context).size.height,
-                          color: ColorPallet.kDarkBackGround.withOpacity(0.75),
+                          color: ColorPallet.kAppLoadingColor.withOpacity(0.6),
                           child: Center(
                               child: Column(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               LoadingCircle(
                                 size: StyleSheet.blockSizeVertical * 6.5,
-                                color: ColorPallet.kLightBackGround,
+                                color: ColorPallet
+                                    .kScaffoldBackGroundGradientColor1,
                               ),
                               SizedBox(
                                 height: StyleSheet.blockSizeVertical,
@@ -128,13 +130,15 @@ class AssignmentScaffold extends StatelessWidget {
                               AssignmentText(
                                   text: CommonStrings.pleaseWait,
                                   textStyle: TextStyle(
-                                      color: ColorPallet.kLightBackGround,
+                                      color: ColorPallet
+                                          .kScaffoldBackGroundGradientColor1,
                                       fontSize: StyleSheet.smallFontSize + 2)),
                               AssignmentText(
-                                  text: CommonStrings.gettingThingsReady +
-                                      "...",
+                                  text:
+                                      CommonStrings.gettingThingsReady + "...",
                                   textStyle: TextStyle(
-                                      color: ColorPallet.kLightBackGround,
+                                      color: ColorPallet
+                                          .kScaffoldBackGroundGradientColor1,
                                       fontSize: StyleSheet.smallFontSize + 2)),
                             ],
                           )))

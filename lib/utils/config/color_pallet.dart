@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class ColorPallet {
   static bool _isDark = false;
@@ -30,7 +31,7 @@ class ColorPallet {
   static Color get kDarkYellow => const Color(0xFFD29D35);
   static Color get kOrange => Colors.orangeAccent;
   static Color get kRed => const Color(0xFFDB4040);
-  static Color get kFadedRed => const Color(0xFFF27777);
+  static Color get kFadedRed => const Color(0xFFDB4040);
   static Color get kDarkRed => const Color(0xFFAF2709);
   static Color get kDarkBlue => const Color(0xFF144F93);
   static Color get kBlue => Colors.blue;
@@ -70,6 +71,8 @@ class ColorPallet {
   static Color get kCardBackground =>
       _isDark ? const Color(0xFF424242) : const Color(0xFFFFFFFF);
 
+  static Color get kBackButtonColor =>
+      _isDark ? const Color(0xFF686666) : const Color(0xFFC4C1C1);
   static Color get kBackground => _isDark ? kDarkBackGround : kWhite;
 
   static Color get kInverseBackground =>
@@ -77,6 +80,9 @@ class ColorPallet {
 
   static Color get kPrimaryTextColor =>
       _isDark ? const Color(0xFFD9D9D9) : const Color(0xFF0E252D);
+
+  static Color get kBlurBackGroundColor =>
+      _isDark ? const Color(0xAE000000) : const Color(0xB4D4D4D4);
 
   static Color get kBackButtonTextColor =>
       _isDark ? const Color(0xFFDADADA) : Colors.white;
@@ -93,7 +99,11 @@ class ColorPallet {
       : const Color.fromRGBO(255, 255, 255, 0.25);
 
   static Color get kAppBarColor =>
-      _isDark ? const Color(0xFF145A5C) : const Color(0xFF25A0A2);
+      _isDark ? const Color(0xff007f77) : const Color(0xFF00a69c);
+
+  static Color get kAppLoadingColor =>
+      _isDark ? const Color(0xFFCEC7C7) : const Color(0xFF31302F);
+
 
   static Color get kNavBarColor =>
       _isDark ? const Color(0xFFEEECE9) : const Color(0xFFEEECE9);
@@ -110,4 +120,19 @@ class ColorPallet {
       _isDark ? Color(0xFF2F2E2D) : Color(0xFFFFFFFF);
   static Color get kBackGroundGradientColor2 =>
       _isDark ? Color(0xFF2F2E2D) : Color(0xFFFFFFFF);
+
+  static SystemUiOverlayStyle get kStatusBarColor =>
+      _isDark ? const SystemUiOverlayStyle(
+        statusBarColor: Color(0xff007f77),
+        statusBarIconBrightness: Brightness.light,
+        systemNavigationBarColor: Color(0xff007f77),
+        systemNavigationBarIconBrightness: Brightness.light,
+      ):
+      const SystemUiOverlayStyle(
+        statusBarColor: Color(0xFF00a69c),
+        statusBarIconBrightness: Brightness.dark,
+        systemNavigationBarColor: Color(0xFF00a69c),
+        systemNavigationBarIconBrightness: Brightness.dark,
+      );
+
 }

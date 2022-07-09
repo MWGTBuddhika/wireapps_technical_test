@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:wireapps_technical_test/feature/authentication/utils/auth_barrel.dart';
 
 class SignUpScreen extends StatelessWidget {
@@ -20,64 +22,80 @@ class SignUpScreen extends StatelessWidget {
           assignmentRouter.pop();
         },
       ),
-      child: Container(
-        height: double.infinity,
-        child: SingleChildScrollView(
-          physics: BouncingScrollPhysics(),
-          child: Padding(
-            padding:  EdgeInsets.only(left: StyleSheet.blockSizeHorizontal*4,right: StyleSheet.blockSizeHorizontal*4),
-            child: Column(
-              children: [
-                Padding(
-                  padding: EdgeInsets.symmetric(
-                      vertical: StyleSheet.blockSizeVertical * 3),
-                  child: Image.asset(AssetImagePath.appIcon,
-                      height: StyleSheet.blockSizeVertical * 17,
-                      fit: BoxFit.cover),
+      child: Stack(
+        children: [
+          Positioned.fill(
+              child: Container(
+                child: Image.asset(AssetImagePath.splashImage,
+                    fit: BoxFit.fill),
+              )),
+          BackdropFilter(
+            filter: ImageFilter.blur(
+              sigmaX: 5.0,
+              sigmaY: 5.0,
+            ),
+            child: Container(
+              color:ColorPallet.kBlurBackGroundColor,
+              height: double.infinity,
+              child: SingleChildScrollView(
+                physics: BouncingScrollPhysics(),
+                child: Padding(
+                  padding:  EdgeInsets.only(left: StyleSheet.blockSizeHorizontal*4,right: StyleSheet.blockSizeHorizontal*4),
+                  child: Column(
+                    children: [
+                      Padding(
+                        padding: EdgeInsets.symmetric(
+                            vertical: StyleSheet.blockSizeVertical * 3),
+                        child: Image.asset(AssetImagePath.appIcon,
+                            height: StyleSheet.blockSizeVertical * 17,
+                            fit: BoxFit.cover),
+                      ),
+                      AssignmentTextBox(
+                        hintText: LoginStrings.enterFirstName,
+                        svgIcon: AssetIconPath.userIcon,
+                        onChanged: (value){
+                          context.read<AuthBloc>().add(FormFieldChanged(value,FieldType.firstName));
+                        },
+                      ),
+                      SizedBox(height: StyleSheet.blockSizeVertical*2,),
+                      AssignmentTextBox(
+                        hintText: LoginStrings.enterLastame,
+                        svgIcon: AssetIconPath.userIcon,
+                        onChanged: (value){
+                          context.read<AuthBloc>().add(FormFieldChanged(value,FieldType.lastName));
+                        },
+                      ),
+                      SizedBox(height: StyleSheet.blockSizeVertical*2,),
+                      AssignmentTextBox(
+                        hintText: LoginStrings.enterEmail,
+                        svgIcon: AssetIconPath.emailIcon,
+                        onChanged: (value){
+                          context.read<AuthBloc>().add(FormFieldChanged(value,FieldType.email));
+                        },
+                      ),
+                      SizedBox(height: StyleSheet.blockSizeVertical*2,),
+                      AssignmentTextBox(
+                        isPassword: true,
+                        hintText: LoginStrings.enterPassword,
+                        svgIcon: AssetIconPath.passwordIcon,
+                        onChanged: (value){
+                          context.read<AuthBloc>().add(FormFieldChanged(value,FieldType.password));
+                        },
+                      ),
+                      SizedBox(height: StyleSheet.blockSizeVertical*2,),
+                      AssignmentButton(
+                        label:LoginStrings.signUp,
+                        onPressed: () {
+                          context.read<AuthBloc>().add(SignUp());
+                        },
+                      ),
+                    ],
+                  ),
                 ),
-                AssignmentTextBox(
-                  hintText: LoginStrings.enterFirstName,
-                  svgIcon: AssetIconPath.userIcon,
-                  onChanged: (value){
-                    context.read<AuthBloc>().add(FormFieldChanged(value,FieldType.firstName));
-                  },
-                ),
-                SizedBox(height: StyleSheet.blockSizeVertical*2,),
-                AssignmentTextBox(
-                  hintText: LoginStrings.enterLastame,
-                  svgIcon: AssetIconPath.userIcon,
-                  onChanged: (value){
-                    context.read<AuthBloc>().add(FormFieldChanged(value,FieldType.lastName));
-                  },
-                ),
-                SizedBox(height: StyleSheet.blockSizeVertical*2,),
-                AssignmentTextBox(
-                  hintText: LoginStrings.enterEmail,
-                  svgIcon: AssetIconPath.emailIcon,
-                  onChanged: (value){
-                    context.read<AuthBloc>().add(FormFieldChanged(value,FieldType.email));
-                  },
-                ),
-                SizedBox(height: StyleSheet.blockSizeVertical*2,),
-                AssignmentTextBox(
-                  isPassword: true,
-                  hintText: LoginStrings.enterPassword,
-                  svgIcon: AssetIconPath.passwordIcon,
-                  onChanged: (value){
-                    context.read<AuthBloc>().add(FormFieldChanged(value,FieldType.password));
-                  },
-                ),
-                SizedBox(height: StyleSheet.blockSizeVertical*2,),
-                AssignmentButton(
-                  label:LoginStrings.signUp,
-                  onPressed: () {
-                    context.read<AuthBloc>().add(SignUp());
-                  },
-                ),
-              ],
+              ),
             ),
           ),
-        ),
+        ],
       ),
     );
   },

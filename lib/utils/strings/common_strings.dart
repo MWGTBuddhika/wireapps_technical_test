@@ -25,4 +25,5 @@ class CommonStrings {
   static const send="Send";
   static const welcome="Welcome";
   static const firstTimeUser="First time user?";
+  static const changeTheme="Change theme";
 }
