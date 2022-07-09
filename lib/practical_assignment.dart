@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:wireapps_technical_test/screen_distributor.dart';
 import 'package:wireapps_technical_test/utils/config/style_sheet.dart';
 
+import 'core/shared_blocs/auth_bloc/auth_bloc.dart';
 import 'core/shared_blocs/theme_bloc/theme_cubit.dart';
 
 class PracticalAssignment extends StatelessWidget {
@@ -21,6 +22,10 @@ class PracticalAssignment extends StatelessWidget {
       providers: [
         BlocProvider<ThemeCubit>(
           create: (BuildContext context) => ThemeCubit(),
+        ),
+        BlocProvider<AuthBloc>(
+          lazy: false,
+          create: (BuildContext context) => AuthBloc(),
         ),
       ],
       child: MaterialApp(

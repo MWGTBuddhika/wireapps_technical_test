@@ -23,4 +23,6 @@ class CommonStrings {
   static const retry="Retry";
   static const areYouSureWantToExit="Are you sure want to exit?";
   static const send="Send";
+  static const welcome="Welcome";
+  static const firstTimeUser="First time user?";
 }

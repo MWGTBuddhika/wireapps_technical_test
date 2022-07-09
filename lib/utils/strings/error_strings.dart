@@ -1,4 +1,5 @@
 class ErrorStrings {
-  static const facebookLoginFailed = 'Facebook Login Failed';
+  static const invalidUserNameOrPassword = 'Invalid Username or Password';
   static const signOutFailed = 'Sign out Failed';
+  static const pleaseFillAllFields = 'Please fill all the fields';
 }

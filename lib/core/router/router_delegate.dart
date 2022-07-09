@@ -1,11 +1,19 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import '../../feature/authentication/sign_in/screens/sign_in.dart';
+import '../../feature/authentication/signup/screens/signup.dart';
+import '../../feature/authentication/signup/screens/welcome.dart';
+import '../../feature/home/screens/home_screen.dart';
 import '../../feature/splash_screen/screens/splash_screen.dart';
 part 'router_delegate.gr.dart';
 @MaterialAutoRouter(
   replaceInRouteName: 'Screen,Route',
   routes: <AutoRoute>[
     AutoRoute(page: SplashScreen, initial: true),
+    CustomRoute(page: HomeScreen,transitionsBuilder: TransitionsBuilders.zoomIn),
+    CustomRoute(page: WelcomeScreen,transitionsBuilder: TransitionsBuilders.slideLeft),
+    CustomRoute(page: SignUpScreen,transitionsBuilder: TransitionsBuilders.slideLeft),
+    CustomRoute(page: SignInScreen,transitionsBuilder: TransitionsBuilders.slideLeft),
   ],
 )
 class AssignmentRouter extends _$AssignmentRouter {}
