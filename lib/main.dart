@@ -1,28 +1,34 @@
+import 'dart:async';
+import 'dart:developer' as developer;
 import 'package:flutter/material.dart';
+import 'package:flutter_native_splash/flutter_native_splash.dart';
+import 'package:hydrated_bloc/hydrated_bloc.dart';
+import 'package:path_provider/path_provider.dart';
+import 'package:wireapps_technical_test/practical_assignment.dart';
 
-void main() {
-  runApp(const MyApp());
+Future<void> main() async {
+  WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
+  //Initialize splashscreen
+  FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
+  //HydratedStorage initialize for hydrated shared_blocs
+  final storage = await HydratedStorage.build(
+    storageDirectory: await getApplicationSupportDirectory(),
+  );
+  await runZonedGuarded(() async => wireappsPracticalTest(storage: storage), onError);
 }
-
-class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
-
-  // This widget is the root of your application.
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
+void wireappsPracticalTest({required HydratedStorage storage}) {
+  BlocOverrides.runZoned(
+        () => HydratedBlocOverrides.runZoned(
+          () => runApp(
+        const PracticalAssignment(),
       ),
-      home: const MyHomePage(),
-    );
-  }
+      storage: storage,
+    ),
+  );
 }
-class MyHomePage extends StatelessWidget {
-  const MyHomePage({Key? key}) : super(key: key);
+void onError(dynamic object, StackTrace err) {
+  developer.log(err.toString());
+  developer.log(object.toString());
+}
 
-  @override
-  Widget build(BuildContext context) {
-    return Container();
-  }
-}
+
