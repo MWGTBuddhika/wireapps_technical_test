@@ -27,4 +27,10 @@ WIREAPPS Technical test
 - Products details view
 - My added products cart
 
+### Resources
 
+- [Release apk file](https://drive.google.com/file/d/1Mo19uiBg0iuuwMJsdRpPzHlN0yl1aXny/view?usp=sharing)
+- [App video demo](https://drive.google.com/file/d/11qRlVjv9xSisyqE0IOYYHTpLgpsB454a/view?usp=sharing)
+
+#### Please consider - i don't have a macbook for build iOS version of this app
+#### Do you want any clarifications please don't hesitate to contact me - 0766081276(Tharindu Buddhika)
