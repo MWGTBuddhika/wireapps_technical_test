@@ -23,7 +23,6 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   void initState() {
     context.read<HomeBloc>().add(const FetchProducts());
-    FlutterNativeSplash.remove();
     super.initState();
   }
 
