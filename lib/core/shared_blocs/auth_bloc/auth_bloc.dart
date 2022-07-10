@@ -70,7 +70,12 @@ class AuthBloc extends HydratedBloc<AuthEvent, AuthState> {
     SignOut event,
     Emitter<AuthState> emit,
   ) async {
-    try {} catch (error) {
+    try {
+      emit(state.copyWith(
+       rememberMe: false
+      ));
+      assignmentRouter.replaceAll([const WelcomeRoute()]);
+    } catch (error) {
       AlertBox().showError(ErrorStrings.signOutFailed);
     }
   }
