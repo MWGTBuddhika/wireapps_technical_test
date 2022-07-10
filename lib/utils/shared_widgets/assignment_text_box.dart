@@ -15,6 +15,7 @@ class AssignmentTextBox extends StatelessWidget {
     this.onSaved,
     this.suffixIcon,
     this.borderOpacity,
+    this.borderColor,
     this.svgIcon, this.isPassword, this.focusNode}) : super(key: key);
 
   final String? hintText;
@@ -27,6 +28,7 @@ class AssignmentTextBox extends StatelessWidget {
   final bool? isPassword;
   final Icon? suffixIcon;
   final double? borderOpacity;
+  final Color? borderColor;
   final FocusNode? focusNode;
 
   @override
@@ -54,7 +56,7 @@ class AssignmentTextBox extends StatelessWidget {
           focusedBorder: OutlineInputBorder(
             borderSide: BorderSide(
               width: 1,
-              color: ColorPallet.kGrey,
+              color: borderColor??ColorPallet.kGrey,
               style: BorderStyle.solid,
             ),
             borderRadius: BorderRadius.circular(16.0),
@@ -62,7 +64,7 @@ class AssignmentTextBox extends StatelessWidget {
           enabledBorder: OutlineInputBorder(
             borderSide: BorderSide(
               width: 1,
-              color: ColorPallet.kGrey.withOpacity(borderOpacity??0.8),
+              color:borderColor?? ColorPallet.kGrey.withOpacity(borderOpacity??0.8),
               style: BorderStyle.solid,
             ),
             borderRadius: BorderRadius.circular(16.0),
@@ -70,7 +72,7 @@ class AssignmentTextBox extends StatelessWidget {
           border: OutlineInputBorder(
             borderSide: BorderSide(
               width: 1,
-              color: ColorPallet.kGrey.withOpacity(borderOpacity??0.8),
+              color:borderColor?? ColorPallet.kGrey.withOpacity(borderOpacity??0.8),
               style: BorderStyle.solid,
             ),
             borderRadius: BorderRadius.circular(16.0),

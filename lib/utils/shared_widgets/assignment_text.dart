@@ -14,6 +14,7 @@ class AssignmentText extends StatelessWidget {
     this.fontWeight,
     this.textColor,
     this.textDecoration,
+    this.fontFamily
   }) : super(key: key);
 
   final String text;
@@ -25,12 +26,16 @@ class AssignmentText extends StatelessWidget {
   final FontWeight? fontWeight;
   final Color? textColor;
   final TextDecoration? textDecoration;
+  final TextStyle? fontFamily;
+
 
   @override
   Widget build(BuildContext context) {
     return Text(
       text,softWrap: true,
-      style: textStyle??TextStyle(
+      style: textStyle??fontFamily??TextStyle(
+        wordSpacing: 3,
+        letterSpacing: 0.5,
         decoration: textDecoration,
         color:textColor?? ColorPallet.kPrimaryTextColor,
         fontSize:fontSize?? StyleSheet.mediumFontSize,

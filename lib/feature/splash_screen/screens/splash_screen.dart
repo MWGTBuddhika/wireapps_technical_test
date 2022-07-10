@@ -19,7 +19,6 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     context.read<AuthBloc>().add(CheckSignedIn());
-    FlutterNativeSplash.remove();
     super.initState();
   }
   @override

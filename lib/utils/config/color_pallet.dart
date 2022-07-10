@@ -51,6 +51,7 @@ class ColorPallet {
   static Color get kInkHighlightColor => const Color(0x55a0a3a3);
   static Color get kMagenta=> const Color(0xFFB01E76);
   static Color get kPurple=> const Color(0xFF8F5EF6);
+  static Color get kDarkPurple=> const Color(0xFF5E39AF);
   static Color get kDarkGreen=> const Color(0xFF267B84);
 
   static Color get kPrimaryGrey => const Color(0xFFC4C4C4);
@@ -79,7 +80,7 @@ class ColorPallet {
       _isDark ? kLightBackGround : kDarkBackGround;
 
   static Color get kPrimaryTextColor =>
-      _isDark ? const Color(0xFFD9D9D9) : const Color(0xFF0E252D);
+      _isDark ? const Color(0xfff6f6f6) : const Color(0xFF0E252D);
 
   static Color get kBlurBackGroundColor =>
       _isDark ? const Color(0xAE000000) : const Color(0xB4D4D4D4);
@@ -93,6 +94,9 @@ class ColorPallet {
 
   static Color get kCardDropShadowColor =>
       _isDark ? Colors.transparent : const Color.fromRGBO(255, 255, 255, 0.25);
+
+  static Color get invertColor =>
+      _isDark ? const Color(0xFFFFFFFF) : const Color(0xFF000000);
 
   static Color get kCardBorderColor => _isDark
       ? Colors.grey.withOpacity(0.2)

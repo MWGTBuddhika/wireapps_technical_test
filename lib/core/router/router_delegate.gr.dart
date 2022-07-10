@@ -39,21 +39,45 @@ class _$AssignmentRouter extends RootStackRouter {
           barrierDismissible: false);
     },
     SignUpRoute.name: (routeData) {
-      final args = routeData.argsAs<SignUpRouteArgs>(
-          orElse: () => const SignUpRouteArgs());
       return CustomPage<dynamic>(
           routeData: routeData,
-          child: SignUpScreen(key: args.key),
+          child: const SignUpScreen(),
           transitionsBuilder: TransitionsBuilders.slideLeft,
           opaque: true,
           barrierDismissible: false);
     },
     SignInRoute.name: (routeData) {
-      final args = routeData.argsAs<SignInRouteArgs>(
-          orElse: () => const SignInRouteArgs());
       return CustomPage<dynamic>(
           routeData: routeData,
-          child: SignInScreen(key: args.key),
+          child: const SignInScreen(),
+          transitionsBuilder: TransitionsBuilders.slideLeft,
+          opaque: true,
+          barrierDismissible: false);
+    },
+    ProductDetailsRoute.name: (routeData) {
+      final args = routeData.argsAs<ProductDetailsRouteArgs>();
+      return CustomPage<dynamic>(
+          routeData: routeData,
+          child: ProductDetailsScreen(key: args.key, product: args.product),
+          transitionsBuilder: TransitionsBuilders.slideLeft,
+          opaque: true,
+          barrierDismissible: false);
+    },
+    SeeAllRoute.name: (routeData) {
+      final args = routeData.argsAs<SeeAllRouteArgs>(
+          orElse: () => const SeeAllRouteArgs());
+      return CustomPage<dynamic>(
+          routeData: routeData,
+          child: SeeAllScreen(
+              key: args.key, shouldSearchFocus: args.shouldSearchFocus),
+          transitionsBuilder: TransitionsBuilders.slideLeft,
+          opaque: true,
+          barrierDismissible: false);
+    },
+    CartRoute.name: (routeData) {
+      return CustomPage<dynamic>(
+          routeData: routeData,
+          child: const CartScreen(),
           transitionsBuilder: TransitionsBuilders.slideLeft,
           opaque: true,
           barrierDismissible: false);
@@ -66,7 +90,10 @@ class _$AssignmentRouter extends RootStackRouter {
         RouteConfig(HomeRoute.name, path: '/home-screen'),
         RouteConfig(WelcomeRoute.name, path: '/welcome-screen'),
         RouteConfig(SignUpRoute.name, path: '/sign-up-screen'),
-        RouteConfig(SignInRoute.name, path: '/sign-in-screen')
+        RouteConfig(SignInRoute.name, path: '/sign-in-screen'),
+        RouteConfig(ProductDetailsRoute.name, path: '/product-details-screen'),
+        RouteConfig(SeeAllRoute.name, path: '/see-all-screen'),
+        RouteConfig(CartRoute.name, path: '/cart-screen')
       ];
 }
 
@@ -96,42 +123,73 @@ class WelcomeRoute extends PageRouteInfo<void> {
 
 /// generated route for
 /// [SignUpScreen]
-class SignUpRoute extends PageRouteInfo<SignUpRouteArgs> {
-  SignUpRoute({dynamic key})
-      : super(SignUpRoute.name,
-            path: '/sign-up-screen', args: SignUpRouteArgs(key: key));
+class SignUpRoute extends PageRouteInfo<void> {
+  const SignUpRoute() : super(SignUpRoute.name, path: '/sign-up-screen');
 
   static const String name = 'SignUpRoute';
 }
 
-class SignUpRouteArgs {
-  const SignUpRouteArgs({this.key});
-
-  final dynamic key;
-
-  @override
-  String toString() {
-    return 'SignUpRouteArgs{key: $key}';
-  }
-}
-
 /// generated route for
 /// [SignInScreen]
-class SignInRoute extends PageRouteInfo<SignInRouteArgs> {
-  SignInRoute({dynamic key})
-      : super(SignInRoute.name,
-            path: '/sign-in-screen', args: SignInRouteArgs(key: key));
+class SignInRoute extends PageRouteInfo<void> {
+  const SignInRoute() : super(SignInRoute.name, path: '/sign-in-screen');
 
   static const String name = 'SignInRoute';
 }
 
-class SignInRouteArgs {
-  const SignInRouteArgs({this.key});
+/// generated route for
+/// [ProductDetailsScreen]
+class ProductDetailsRoute extends PageRouteInfo<ProductDetailsRouteArgs> {
+  ProductDetailsRoute({Key? key, required Product product})
+      : super(ProductDetailsRoute.name,
+            path: '/product-details-screen',
+            args: ProductDetailsRouteArgs(key: key, product: product));
 
-  final dynamic key;
+  static const String name = 'ProductDetailsRoute';
+}
+
+class ProductDetailsRouteArgs {
+  const ProductDetailsRouteArgs({this.key, required this.product});
+
+  final Key? key;
+
+  final Product product;
 
   @override
   String toString() {
-    return 'SignInRouteArgs{key: $key}';
+    return 'ProductDetailsRouteArgs{key: $key, product: $product}';
   }
+}
+
+/// generated route for
+/// [SeeAllScreen]
+class SeeAllRoute extends PageRouteInfo<SeeAllRouteArgs> {
+  SeeAllRoute({Key? key, bool shouldSearchFocus = false})
+      : super(SeeAllRoute.name,
+            path: '/see-all-screen',
+            args: SeeAllRouteArgs(
+                key: key, shouldSearchFocus: shouldSearchFocus));
+
+  static const String name = 'SeeAllRoute';
+}
+
+class SeeAllRouteArgs {
+  const SeeAllRouteArgs({this.key, this.shouldSearchFocus = false});
+
+  final Key? key;
+
+  final bool shouldSearchFocus;
+
+  @override
+  String toString() {
+    return 'SeeAllRouteArgs{key: $key, shouldSearchFocus: $shouldSearchFocus}';
+  }
+}
+
+/// generated route for
+/// [CartScreen]
+class CartRoute extends PageRouteInfo<void> {
+  const CartRoute() : super(CartRoute.name, path: '/cart-screen');
+
+  static const String name = 'CartRoute';
 }

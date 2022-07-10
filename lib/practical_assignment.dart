@@ -6,6 +6,7 @@ import 'package:wireapps_technical_test/utils/config/style_sheet.dart';
 
 import 'core/shared_blocs/auth_bloc/auth_bloc.dart';
 import 'core/shared_blocs/theme_bloc/theme_cubit.dart';
+import 'feature/home/bloc/home_bloc/home_bloc.dart';
 
 class PracticalAssignment extends StatelessWidget {
   const PracticalAssignment({Key? key}) : super(key: key);
@@ -26,6 +27,10 @@ class PracticalAssignment extends StatelessWidget {
         BlocProvider<AuthBloc>(
           lazy: false,
           create: (BuildContext context) => AuthBloc(),
+        ),
+        BlocProvider<HomeBloc>(
+          lazy: false,
+          create: (BuildContext context) => HomeBloc(),
         ),
       ],
       child: MaterialApp(
