@@ -1,16 +1,16 @@
-# wireapps_technical_test
+# WIREAPPS Technical test
 
 WIREAPPS Technical test
 
-## Getting Started
+## Special notes 
 
-This project is a starting point for a Flutter application.
+- Used state management procedure - BLoC
 
-A few resources to get you started if this is your first Flutter project:
+### Authentication, SignIn,SignUp
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+- For the authentication, the user should be navigated to the dashboard page
+  until user login off from the application. For keep that single entry state as the offline
+  that i used Hydrated BLoC as the offline state because of simple and reliable
+  offline state management coming from flutter BLoC. We can use it here because of using state is a
+  single entry record other than that if record is larger then we need to proper offline database tool
+  like SQLite,Hive, etc. For the simplicity i used Hydrated BLoC here.

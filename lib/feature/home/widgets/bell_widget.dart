@@ -1,5 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:wireapps_technical_test/core/router/router.dart';
+import 'package:wireapps_technical_test/core/shared_blocs/auth_bloc/auth_bloc.dart';
 
 import '../../../core/shared_blocs/theme_bloc/theme_cubit.dart';
 import '../../../utils/config/color_pallet.dart';
@@ -52,7 +53,23 @@ class BellWidget extends StatelessWidget {
                   color: ColorPallet.kWhite,
                 ),
               ),
-            ):SizedBox.shrink()
+            ):GestureDetector(
+              onTap: () {
+               context.read<AuthBloc>().add(SignOut());
+              },
+              child: Container(
+                width: StyleSheet.blockSizeVertical * 5,
+                height: StyleSheet.blockSizeVertical * 5,
+                decoration: BoxDecoration(
+                  color: Colors.redAccent,
+                  shape: BoxShape.circle,
+                ),
+                child: Icon(
+                  Icons.exit_to_app,
+                  color: ColorPallet.kWhite,
+                ),
+              ),
+            )
           ],
         );
       },
