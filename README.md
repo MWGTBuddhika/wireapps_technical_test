@@ -1,16 +1,36 @@
-# wireapps_technical_test
+# WIREAPPS Technical test
 
 WIREAPPS Technical test
 
-## Getting Started
+## Special notes 
 
-This project is a starting point for a Flutter application.
+- Used state management procedure - BLoC
 
-A few resources to get you started if this is your first Flutter project:
+### Authentication, SignIn,SignUp
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+- For the authentication, the user should be navigated to the dashboard page
+  until user login off from the application. For keep that single entry state as the offline
+  that i used Hydrated BLoC as the offline state because of simple and reliable
+  offline state management coming from flutter BLoC. We can use it here because of using state is a
+  single entry record other than that if record is larger then we need to proper offline database tool
+  like SQLite,Hive, etc. For the simplicity i used Hydrated BLoC here.
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Added features
+
+- Theme changer(you can change theme between dark mode and light mode using theme chnage icon on home page
+  and top right switch on signin signup page)
+- User registration, and authentication.
+- Search products
+- filter products using "in stock" or "out of stock"
+- Sort products using brand
+- View all products
+- Products details view
+- My added products cart
+
+### Resources
+
+- [Release apk file](https://drive.google.com/file/d/1Mo19uiBg0iuuwMJsdRpPzHlN0yl1aXny/view?usp=sharing)
+- [App video demo](https://drive.google.com/file/d/11qRlVjv9xSisyqE0IOYYHTpLgpsB454a/view?usp=sharing)
+
+#### Please consider - i don't have a macbook for build iOS version of this app
+#### Do you want any clarifications please don't hesitate to contact me - 0766081276(Tharindu Buddhika)

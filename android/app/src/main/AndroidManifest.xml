@@ -1,7 +1,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.wireapps.wireapps_technical_test">
+    <uses-permission android:name="android.permission.INTERNET"/>
    <application
-        android:label="wireapps_technical_test"
+        android:label="WIREAPPS Technical Test"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity
